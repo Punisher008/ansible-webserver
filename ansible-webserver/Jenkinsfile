@@ -19,12 +19,11 @@ pipeline {
               }
 	    }
 	}
-       
         stage('Download Ansible Code') {
             steps {
                 git credentialsId: 'git-repo-creds', url: 'git@github.com:Punisher008/ansible-webserver.git'
             }
-         }
+        }
         stage('Run ansible-lint against playbooks') {
             steps {
             sh 'docker run --rm -v $WORKSPACE/ansible-webserver/playbooks:/data cytopia/ansible-lint:4 apache-install.yml'
