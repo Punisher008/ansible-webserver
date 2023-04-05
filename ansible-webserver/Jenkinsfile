@@ -22,7 +22,7 @@ pipeline {
          
         stage('Third Stage') {
             steps {
-                echo "Third stage"
+                git credentialsId: 'git-repo-creds', url: 'git@github.com:Punisher008/ansible-webserver.git'
             }
         }
     }
