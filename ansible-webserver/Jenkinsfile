@@ -21,7 +21,7 @@ pipeline {
 	}
         stage('Download Ansible Code') {
             steps {
-                git credentialsId: 'git-repo-creds', url: 'git@github.com:Punisher008/ansible-webserver.git'
+                git branch: 'main', credentialsId: 'git-repo-creds', url: 'git@github.com:Punisher008/ansible-webserver.git'
             }
         }
         stage('Run ansible-lint against playbooks') {
