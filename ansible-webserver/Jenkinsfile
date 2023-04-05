@@ -41,7 +41,7 @@ pipeline {
                 sh 'export ANSIBLE_ROLES_PATH=/opt/jenkins/workspace/ansible-pipeline/roles && ansible-playbook -u $USER --private-key $KEY_FILE -i $WORKSPACE/ansible-webserver/host_inventory $WORKSPACE/ansible-webserver/playbooks/website-update.yml'
            }
         }
-        stage('Run ansible-lint against playbooks') {
+        stage('Test Website') {
             steps {
                 sh 'export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -u $USER --private-key $KEY_FILE -i $WORKSPACE/ansible-webserver/host_inventory $WORKSPACE/ansible-webserver/playbooks/apache-install.yml'
             }
